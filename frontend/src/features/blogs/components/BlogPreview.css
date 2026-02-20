@@ -1,0 +1,404 @@
+@import "highlight.js/styles/atom-one-dark.css";
+
+/* Styles pour l'aperçu du blog */
+.blog-content {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* Styles pour les titres */
+.blog-content h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.blog-content h2 {
+  font-size: 1.75em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.blog-content h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.blog-content h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.blog-content h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.blog-content h6 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+/* Styles pour les paragraphes */
+.blog-content p {
+  margin: 1em 0;
+}
+
+/* Styles pour les listes */
+.blog-content ul,
+.blog-content ol {
+  padding-left: 2rem;
+  margin: 1em 0;
+}
+
+/* Styles pour les citations */
+.blog-content blockquote {
+  border-left: 3px solid #ddd;
+  padding-left: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+}
+
+/* Styles pour les liens */
+.blog-content a {
+  color: #0074d9;
+  text-decoration: underline;
+}
+
+/* Styles pour les images */
+.blog-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+  height: auto;
+}
+
+/* Styles pour les vidéos YouTube */
+.blog-content .youtube-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.blog-content .youtube-video {
+  width: 70%;
+  aspect-ratio: 16/9;
+}
+
+/* Styles pour les blocs de code */
+.blog-content pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+/* Styles pour les blocs de code avec coloration syntaxique */
+.blog-content .code-block {
+  position: relative;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1em 0;
+}
+
+/* Sélecteur de langage dans l'aperçu */
+.blog-content .code-block::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background: #333;
+  color: #fff;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+/* Styles pour les différentes langages */
+.blog-content .language-javascript,
+.blog-content .language-js {
+  color: #f8c555;
+}
+
+.blog-content .language-html,
+.blog-content .language-xml {
+  color: #e34c26;
+}
+
+.blog-content .language-css {
+  color: #563d7c;
+}
+
+.blog-content .language-java {
+  color: #b07219;
+}
+
+.blog-content .language-python {
+  color: #3572a5;
+}
+
+.blog-content .language-php {
+  color: #4f5d95;
+}
+
+/* Responsive pour les images et vidéos */
+@media (max-width: 768px) {
+  .blog-content img,
+  .blog-content .youtube-video {
+    max-width: 100%;
+  }
+}
+
+/* Styles de base pour l'aperçu du blog */
+.blog-preview {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* Styles pour les blocs de code */
+.blog-preview pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1em 0;
+  position: relative;
+}
+
+.blog-preview .code-block {
+  position: relative;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1em 0;
+}
+
+/* Sélecteur de langage */
+.blog-preview .code-block::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background: #333;
+  color: #fff;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+/* ============================================
+   READER VIEW STYLES (for Blog.jsx with prose)
+   Override Tailwind prose defaults
+   ============================================ */
+
+/* Center images in reader view - override prose */
+.prose img,
+.prose-lg img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 70% !important;
+  height: auto !important;
+}
+
+/* Code blocks with syntax highlighting in reader view */
+.prose pre,
+.prose-lg pre {
+  background: #282c34 !important;
+  color: #abb2bf !important;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 0.5rem !important;
+  overflow-x: auto !important;
+  margin: 1.5em 0 !important;
+  font-size: 0.9em !important;
+  line-height: 1.6 !important;
+}
+
+.prose code,
+.prose-lg code {
+  background: transparent !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  padding: 0 !important;
+}
+
+.prose pre code,
+.prose-lg pre code {
+  background: transparent !important;
+  color: inherit !important;
+  font-weight: normal !important;
+}
+
+/* Inline code styling */
+.prose :not(pre) > code,
+.prose-lg :not(pre) > code {
+  background: #f1f5f9 !important;
+  color: #e11d48 !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.875em !important;
+}
+
+/* Syntax highlighting colors (Atom One Dark theme) */
+.prose pre .hljs-keyword,
+.prose-lg pre .hljs-keyword,
+.blog-content pre .hljs-keyword {
+  color: #c678dd !important;
+}
+
+.prose pre .hljs-string,
+.prose-lg pre .hljs-string,
+.blog-content pre .hljs-string {
+  color: #98c379 !important;
+}
+
+.prose pre .hljs-number,
+.prose-lg pre .hljs-number,
+.blog-content pre .hljs-number {
+  color: #d19a66 !important;
+}
+
+.prose pre .hljs-function,
+.prose-lg pre .hljs-function,
+.blog-content pre .hljs-function {
+  color: #61afef !important;
+}
+
+.prose pre .hljs-title,
+.prose-lg pre .hljs-title,
+.blog-content pre .hljs-title {
+  color: #61afef !important;
+}
+
+.prose pre .hljs-params,
+.prose-lg pre .hljs-params,
+.blog-content pre .hljs-params {
+  color: #abb2bf !important;
+}
+
+.prose pre .hljs-comment,
+.prose-lg pre .hljs-comment,
+.blog-content pre .hljs-comment {
+  color: #5c6370 !important;
+  font-style: italic !important;
+}
+
+.prose pre .hljs-variable,
+.prose-lg pre .hljs-variable,
+.blog-content pre .hljs-variable {
+  color: #e06c75 !important;
+}
+
+.prose pre .hljs-attr,
+.prose-lg pre .hljs-attr,
+.blog-content pre .hljs-attr {
+  color: #d19a66 !important;
+}
+
+.prose pre .hljs-tag,
+.prose-lg pre .hljs-tag,
+.blog-content pre .hljs-tag {
+  color: #e06c75 !important;
+}
+
+.prose pre .hljs-name,
+.prose-lg pre .hljs-name,
+.blog-content pre .hljs-name {
+  color: #e06c75 !important;
+}
+
+.prose pre .hljs-attribute,
+.prose-lg pre .hljs-attribute,
+.blog-content pre .hljs-attribute {
+  color: #d19a66 !important;
+}
+
+.prose pre .hljs-built_in,
+.prose-lg pre .hljs-built_in,
+.blog-content pre .hljs-built_in {
+  color: #e6c07b !important;
+}
+
+.prose pre .hljs-literal,
+.prose-lg pre .hljs-literal,
+.blog-content pre .hljs-literal {
+  color: #56b6c2 !important;
+}
+
+.prose pre .hljs-type,
+.prose-lg pre .hljs-type,
+.blog-content pre .hljs-type {
+  color: #e6c07b !important;
+}
+
+.prose pre .hljs-class,
+.prose-lg pre .hljs-class,
+.blog-content pre .hljs-class {
+  color: #e6c07b !important;
+}
+
+.prose pre .hljs-selector-tag,
+.prose-lg pre .hljs-selector-tag,
+.blog-content pre .hljs-selector-tag {
+  color: #e06c75 !important;
+}
+
+.prose pre .hljs-selector-class,
+.prose-lg pre .hljs-selector-class,
+.blog-content pre .hljs-selector-class {
+  color: #d19a66 !important;
+}
+
+.prose pre .hljs-selector-id,
+.prose-lg pre .hljs-selector-id,
+.blog-content pre .hljs-selector-id {
+  color: #61afef !important;
+}
+
+/* YouTube videos centered in reader view */
+.prose .youtube-wrapper,
+.prose-lg .youtube-wrapper,
+.prose iframe[src*="youtube"],
+.prose-lg iframe[src*="youtube"] {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 70% !important;
+}
+
+.prose .youtube-video,
+.prose-lg .youtube-video {
+  width: 100% !important;
+  aspect-ratio: 16/9 !important;
+}
+
+/* Responsive adjustments for reader view */
+@media (max-width: 768px) {
+  .prose img,
+  .prose-lg img,
+  .prose .youtube-wrapper,
+  .prose-lg .youtube-wrapper,
+  .prose iframe[src*="youtube"],
+  .prose-lg iframe[src*="youtube"] {
+    max-width: 100% !important;
+  }
+}
