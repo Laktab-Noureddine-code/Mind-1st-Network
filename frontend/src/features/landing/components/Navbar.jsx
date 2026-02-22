@@ -17,16 +17,15 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "#features", label: "Find your plan" },
-    { href: "#how-it-works", label: "Events" },
-    { href: "#testimonials", label: "Groups" },
+    { href: "#home", label: "HOME" },
+    { href: "#about", label: "ABOUT" },
+    { href: "#portfolio", label: "PORTFOLIO" },
+    { href: "#service", label: "SERVICE" },
+    { href: "#contact", label: "CONTACT" },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "py-2" : "py-4"
       }`}
@@ -57,8 +56,8 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-medium text-sm transition-all duration-300 hover:text-[#2A7B88] ${
-                  scrolled ? "text-[#2D3436]" : "text-[#2D3436]/80"
+                className={`font-bold text-sm tracking-wide transition-all duration-300 hover:text-[#4a96c4] ${
+                  scrolled ? "text-[#5bb6ea]" : "text-[#5bb6ea]"
                 }`}
               >
                 {link.label}
@@ -71,7 +70,7 @@ export default function Navbar() {
             {/* Login Link */}
             <Link
               to="/login"
-              className={`hidden sm:block font-medium text-sm transition-all duration-300 hover:text-[#2A7B88] ${
+              className={`hidden sm:block font-medium text-sm transition-all duration-300 hover:text-[#5bb6ea] ${
                 scrolled ? "text-[#2D3436]" : "text-[#2D3436]/80"
               }`}
             >
@@ -81,7 +80,7 @@ export default function Navbar() {
             {/* Sign Up Button */}
             <Link
               to="/register"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#2A7B88] text-white font-semibold text-sm hover:bg-[#1F6270] transition-all duration-300 hover:shadow-lg hover:shadow-[#2A7B88]/25"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"
             >
               Sign Up
             </Link>
@@ -102,13 +101,9 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
+        
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+            <div
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-2 border-t border-gray-200 mt-4">
@@ -116,7 +111,7 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#EFF5EC] transition-all"
+                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
@@ -125,24 +120,24 @@ export default function Navbar() {
                 <div className="pt-4 border-t border-gray-200 space-y-2">
                   <Link
                     to="/login"
-                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#EFF5EC] transition-all"
+                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
                     onClick={() => setIsOpen(false)}
                   >
                     Log In
                   </Link>
                   <Link
                     to="/register"
-                    className="block px-4 py-3 rounded-full bg-[#2A7B88] text-white text-center font-semibold"
+                    className="block px-4 py-3 rounded-full bg-[#5bb6ea] text-white text-center font-semibold"
                     onClick={() => setIsOpen(false)}
                   >
                     Sign Up
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
+        
       </div>
-    </motion.nav>
+    </nav>
   );
 }

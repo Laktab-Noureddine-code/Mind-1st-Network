@@ -1,31 +1,14 @@
-/**
- * ============================================================
- *  Centralized API Client — Bearer Token Authentication
- * ============================================================
- *  Migration: Sanctum SPA (HttpOnly cookies) → API Tokens (JWT / PAT)
- *
- *  How it works:
- *  1. On login, the backend returns a token → we store it in localStorage.
- *  2. Every outgoing request automatically attaches the token as a
- *     Bearer Authorization header via the request interceptor.
- *  3. If any response returns 401 (token expired / invalid), the
- *     response interceptor clears the token and redirects to /login.
- * ============================================================
- */
 import axios from 'axios';
 import { CONFIG } from '@/config/env';
 
-// ── Constants ────────────────────────────────────────────────
 const AUTH_TOKEN_KEY = 'auth_token';
 
-// ── Axios Instance ───────────────────────────────────────────
 const api = axios.create({
   baseURL: CONFIG.backendUrl,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
-  // No `withCredentials` — we are no longer using cookies
 });
 
 // ── Request Interceptor — Attach Bearer Token ────────────────

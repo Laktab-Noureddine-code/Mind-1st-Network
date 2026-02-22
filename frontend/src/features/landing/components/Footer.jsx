@@ -29,7 +29,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
-                className="p-2 rounded-full text-[#636E72] hover:text-[#2A7B88] hover:bg-[#EFF5EC] transition-all duration-300"
+                className="p-2 rounded-full text-[#636E72] hover:text-[#5bb6ea] hover:bg-[#eef7fc] transition-all duration-300"
                 aria-label={social.label}
               >
                 {social.icon}

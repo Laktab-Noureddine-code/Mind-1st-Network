@@ -51,16 +51,13 @@ function SignUpPage() {
 
   return (
     <AuthLayout 
-      title="Sign Up" 
-      subtitle="Create your account to get started"
-      welcomeTitle="Join Us"
-      welcomeSubtitle="Become part of our growing community today."
-      image="/landing/login-img.jpg" // Can use different image if available
+      title="Create Account" 
+      subtitle="Enter your details to register your account"
     >
       <form className="space-y-1" onSubmit={handleSubmit(onSubmit)}>
-         <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Full Name
+         <div className="mt-4">
+            <label className="block text-xs font-bold text-gray-900 mb-2">
+              Full Name*
             </label>
             <input
               type="text"
@@ -71,7 +68,7 @@ function SignUpPage() {
                   message: "Name must be at least 3 characters",
                 },
               })}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
               placeholder="Mohammed Amine"
             />
             {errors.name && (
@@ -79,9 +76,9 @@ function SignUpPage() {
             )}
          </div>
 
-         <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email Address
+         <div className="mt-4">
+            <label className="block text-xs font-bold text-gray-900 mb-2">
+              Business Email*
             </label>
             <input
               type="email"
@@ -92,7 +89,7 @@ function SignUpPage() {
                   message: "Invalid email address",
                 },
               })}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
               placeholder="name@example.com"
             />
             {errors.email && (
@@ -100,9 +97,9 @@ function SignUpPage() {
             )}
          </div>
 
-         <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
+         <div className="mt-4">
+            <label className="block text-xs font-bold text-gray-900 mb-2">
+              Password*
             </label>
             <input
               type="password"
@@ -112,14 +109,8 @@ function SignUpPage() {
                   value: 8,
                   message: "Password must be at least 8 characters",
                 },
-                 pattern: {
-                      value:
-                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/,
-                      message:
-                        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
-                    },
               })}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
               placeholder="At least 8 characters"
             />
             {errors.password && (
@@ -127,9 +118,9 @@ function SignUpPage() {
             )}
          </div>
 
-         <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Confirm Password
+         <div className="mt-4">
+            <label className="block text-xs font-bold text-gray-900 mb-2">
+              Confirm Password*
             </label>
             <input
               type="password"
@@ -138,7 +129,7 @@ function SignUpPage() {
                 validate: (value) =>
                   value === watch("password") || "Passwords do not match",
               })}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
               placeholder="Confirm your password"
             />
             {errors.password_confirmation && (
@@ -148,16 +139,16 @@ function SignUpPage() {
 
          <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 mt-2"
+          className="w-full bg-[#fcd53f] text-gray-900 py-3 rounded-lg font-bold hover:bg-[#e6c239] transition-colors shadow-md text-sm mt-8"
           disabled={isLoading}
         >
-          {isLoading ? "Creating Account..." : "Sign Up"}
+          {isLoading ? "Creating Account..." : "Register"}
         </button>
 
         <div className="text-center mt-6">
-          <p className="text-sm text-gray-600">
+          <p className="text-xs text-gray-500 font-medium">
             Already have an account?{" "}
-            <Link to="/login" className="font-semibold text-blue-600 hover:text-blue-800">
+            <Link to="/login" className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors">
               Log In
             </Link>
           </p>

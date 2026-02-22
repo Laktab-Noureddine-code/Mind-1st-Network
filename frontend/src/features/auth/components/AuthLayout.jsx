@@ -1,59 +1,67 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function AuthLayout({ 
-  children, 
-  title, 
-  subtitle, 
-  image = "/landing/illustration.png", 
-  welcomeTitle = "Welcome Back", 
-  welcomeSubtitle = "Connect with friends and the world around you on SocialApp." 
-}) {
+export default function AuthLayout({ children, title, subtitle }) {
+  const location = useLocation();
+  const isLogin = location.pathname === "/login";
+
   return (
-    <div className="max-h-screen flex w-full">
-      {/* Left Side - Blue Background (Hidden on mobile) */}
-      <div className="hidden lg:flex w-1/2 bg-[#cce5fb] flex-col items-center justify-center relative overflow-hidden p-10 text-white">
-        <div className="z-10 text-center max-w-lg">
-          <h1 className="text-4xl font-bold mb-2">{welcomeTitle}</h1>
-          <p className="text-lg mb-2">{welcomeSubtitle}</p>
-          
-          <div className="relative w-full max-w-md mx-auto aspect-square">
-             {/* Illustration */}
-            <img 
-              src={image} 
-              alt="Authentication Illustration" 
-              className="w-full h-full object-contain"
-            />
-          </div>
+    <div className="min-h-screen w-full bg-[#E5E5E5] relative flex flex-col items-center justify-center overflow-hidden font-sans">
+      
+      {/* Top Header */}
+      <div className="absolute top-0 w-full p-6 sm:p-10 flex justify-between items-center z-20">
+        <Link to="/" className="flex items-center gap-2">
+           <img src="/logo.png" alt="Logo" className="h-8 md:h-10 object-contain" />
+        </Link>
+        <div className="flex items-center gap-6">
+           <Link 
+             to={isLogin ? "/register" : "/login"} 
+             className="text-sm font-semibold text-gray-800 hover:text-[#5bb6ea] transition-colors"
+           >
+             {isLogin ? "Signup" : "Login"}
+           </Link>
         </div>
+      </div>
+
+      {/* Abstract Wavy Background Pattern */}
+      <div className="absolute w-full top-1/2 -translate-y-1/2 flex flex-col gap-6 opacity-30 pointer-events-none z-0">
+        {[...Array(6)].map((_, i) => (
+          <svg key={i} width="100%" height="20" viewBox="0 0 1440 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 10C120 -5 240 25 360 10C480 -5 600 25 720 10C840 -5 960 25 1080 10C1200 -5 1320 25 1440 10" stroke="#111" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        ))}
+      </div>
+
+      {/* Floating Avatars (Absolute positioning matching the reference) */}
+      <img src="/auth/auth_avatar_3_1771718546218.png" alt="Avatar" className="absolute left-[15%] top-[40%] w-24 h-24 object-contain z-10 hidden md:block drop-shadow-md -rotate-12" />
+      <img src="/auth/auth_avatar_4_1771718387416.png" alt="Avatar" className="absolute left-[5%] bottom-[25%] w-20 h-20 object-contain z-10 hidden lg:block drop-shadow-md rotate-12" />
+      
+      <img src="/auth/auth_avatar_1_1771718519420.png" alt="Avatar" className="absolute right-[10%] top-[35%] w-32 h-32 object-contain z-10 hidden xl:block drop-shadow-md rotate-[15deg]" />
+      <img src="/auth/auth_avatar_2_1771718533879.png" alt="Avatar" className="absolute right-[20%] bottom-[35%] w-24 h-24 object-contain z-10 hidden md:block drop-shadow-md -rotate-6" />
+
+      {/* Top Right Paper Plane Accent */}
+      <svg className="absolute right-[20%] top-[25%] hidden lg:block z-10 w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M20 50L80 20L60 80L45 60L20 50Z" fill="#202a44" />
+         <path d="M45 60L80 20Z" stroke="#5bb6ea" strokeWidth="3" />
+         <path d="M20 50L45 60L35 70Z" fill="#5bb6ea" />
+      </svg>
+
+      {/* Central Auth Form Card */}
+      <div className="relative z-20 w-full max-w-md bg-[#F4F4F4] rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col items-center mx-4">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
+        <p className="text-sm text-gray-500 text-center mb-8 px-4">{subtitle}</p>
         
-        {/* Background decorations could go here */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-           <div className="absolute top-10 right-10 w-20 h-20 rounded-full border-4 border-white"></div>
-           <div className="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-white blur-3xl"></div>
-        </div>
-      </div>
-
-      {/* Right Side - White Background */}
-      <div className="max-h-screen w-full lg:w-1/2 bg-white flex flex-col sm:p-2 lg:p-5 overflow-y-auto">
-        {/* Logo */}
-        <div className="mb-12 flex justify-center">
-          <Link to="/" className="">
-             <img src="/logo.png" alt="Logo" className="h-17 w-auto" />
-          </Link>
-        </div>
-
-        <div className="max-h-screen w-full max-w-md mx-auto flex-1 flex flex-col justify-center">
-          <div className="mb-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-            <p className="text-gray-500">{subtitle}</p>
-          </div>
-
+        <div className="w-full">
           {children}
-          
         </div>
       </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-6 w-full text-center z-20">
+        <p className="text-xs font-semibold text-gray-500">
+           Copyright @ProfessionalNetwork &nbsp;|&nbsp; Privacy Policy
+        </p>
+      </div>
+
     </div>
   );
 }
-
-export default AuthLayout;

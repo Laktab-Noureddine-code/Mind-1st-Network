@@ -4,68 +4,60 @@ const steps = [
   {
     num: "01",
     img: "/landing/feature-matching.png",
-    title: "Create your profile",
-    desc: "Set up your profile with your interests, hobbies, and what you're looking for in a friend.",
+    title: "Setup Your Profile",
+    desc: "Create your professional identity, list your skills, and let others discover your expertise.",
   },
   {
     num: "02",
     img: "/landing/feature-events.png",
-    title: "Match with friends",
-    desc: "Our smart algorithm suggests people near you who share your interests and passions.",
+    title: "Join or Create Spaces",
+    desc: "Discover engaging groups and pages, or build your own community around specific topics.",
   },
   {
     num: "03",
     img: "/landing/feature-groups.png",
-    title: "Start conversations",
-    desc: "Break the ice and start chatting in real-time with your new connections.",
+    title: "Share Your Knowledge",
+    desc: "Write enriched articles with our robust editor to establish your professional presence.",
   },
   {
     num: "04",
     img: "/landing/hero-friends.png",
-    title: "Social connection",
-    desc: "Build lasting friendships, join groups, and attend events together.",
+    title: "Build Connections",
+    desc: "Message directly, participate in discussions, and expand your professional network.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-4 bg-white">
+    <section id="portfolio" className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-3">
-            How it Works
+            Portfolio
           </h2>
           <p className="text-[#636E72] max-w-xl mx-auto">
             Getting started is simple. Follow these easy steps to start making
             meaningful connections.
           </p>
-        </motion.div>
+        </div>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {steps.map((step, index) => (
-            <motion.div
+            <div
               key={step.num}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
               className="text-center group"
             >
               {/* Step Number */}
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#2A7B88] text-white font-bold text-sm mb-5">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#5bb6ea] text-white font-bold text-sm mb-5">
                 {step.num}
               </div>
 
               {/* Illustration */}
-              <div className="w-full h-36 rounded-2xl bg-[#EFF5EC] flex items-center justify-center mb-5 overflow-hidden">
+              <div className="w-full h-36 rounded-2xl bg-[#eef7fc] flex items-center justify-center mb-5 overflow-hidden">
                 <img
                   src={step.img}
                   alt={step.title}
@@ -80,25 +72,21 @@ export default function HowItWorks() {
               <p className="text-[#636E72] text-sm leading-relaxed max-w-xs mx-auto">
                 {step.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* CTA button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <div
           className="text-center"
         >
           <a
             href="#testimonials"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#2A7B88] text-white font-semibold text-sm hover:bg-[#1F6270] transition-all duration-300 hover:shadow-lg hover:shadow-[#2A7B88]/25"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"
           >
-            Find new friends
+            Start networking
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

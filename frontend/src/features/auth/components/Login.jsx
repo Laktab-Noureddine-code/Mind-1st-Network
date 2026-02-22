@@ -57,8 +57,8 @@ function LoginPage() {
         )}
 
         <div>
-           <label className="block text-sm font-medium text-gray-700 mb-1">
-             Email Address
+           <label className="block text-xs font-bold text-gray-900 mb-2">
+             Email Address*
            </label>
            <input
             type="email"
@@ -69,7 +69,7 @@ function LoginPage() {
                 message: "Invalid email address",
               },
             })}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
             placeholder="name@example.com"
           />
           {errors.email && (
@@ -77,9 +77,9 @@ function LoginPage() {
           )}
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Password
+        <div className="mt-4">
+          <label className="block text-xs font-bold text-gray-900 mb-2">
+            Password*
           </label>
           <input
             type="password"
@@ -90,7 +90,7 @@ function LoginPage() {
                 message: "Password must be at least 6 characters",
               }
             })}
-             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 bg-opacity-50"
+             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
              placeholder="Password"
           />
           {errors.password && (
@@ -98,38 +98,38 @@ function LoginPage() {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-6 mb-8 text-xs">
            <div className="flex items-center">
              <input
                id="remember-me"
                type="checkbox"
-               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+               className="h-4 w-4 text-[#5bb6ea] focus:ring-[#5bb6ea] border-gray-300 rounded cursor-pointer"
              />
-             <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700 font-medium">
-               Remember your password
+             <label htmlFor="remember-me" className="ml-2 block text-gray-600 font-medium cursor-pointer">
+               Remember me
              </label>
            </div>
            
              <Link
             to="/forgot-password"
-            className="text-sm font-semibold text-blue-600 hover:text-blue-800"
+            className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors"
           >
-            Forgot Password
+            Forgot Password?
           </Link>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200"
+          className="w-full bg-[#fcd53f] text-gray-900 py-3 rounded-lg font-bold hover:bg-[#e6c239] transition-colors shadow-md text-sm"
           disabled={isLoading}
         >
-          {isLoading ? "Logging in..." : "Log In"}
+          {isLoading ? "Logging in..." : "Login"}
         </button>
         
         <div className="text-center mt-6">
-          <p className="text-sm text-gray-600">
+          <p className="text-xs text-gray-500 font-medium">
             Don't have an account?{" "}
-            <Link to="/register" className="font-semibold text-blue-600 hover:text-blue-800">
+            <Link to="/register" className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors">
               Sign Up
             </Link>
           </p>

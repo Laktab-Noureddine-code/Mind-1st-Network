@@ -2,34 +2,34 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    img: "/landing/feature-events.png",
-    title: "E-invite",
-    desc: "Send and receive invitations to join events and social gatherings with your friends.",
-  },
-  {
     img: "/landing/feature-matching.png",
-    title: "Find the best hangout",
-    desc: "Discover the perfect spots to meet up with friends based on shared interests and location.",
-  },
-  {
-    img: "/landing/feature-groups.png",
-    title: "At your fingertips",
-    desc: "Everything you need to stay connected with your community, right in your pocket.",
-  },
-  {
-    img: "/landing/feature-matching.png",
-    title: "Secure Privacy",
-    desc: "Your data is protected with end-to-end encryption. Share only what you want to share.",
+    title: "Professional Profiles",
+    desc: "Create and customize your professional identity to showcase your skills and stand out.",
   },
   {
     img: "/landing/feature-events.png",
-    title: "Brings interests together",
-    desc: "Match with people who share your hobbies, passions, and goals for meaningful connections.",
+    title: "Blogging Platform",
+    desc: "Write and manage personal, group, or page-based articles to share your expertise.",
   },
   {
     img: "/landing/feature-groups.png",
-    title: "Near proximity",
-    desc: "Find friends nearby and connect with your local community for real-world meetups.",
+    title: "Pages & Groups",
+    desc: "Create thematic or professional spaces to build and engage with your community.",
+  },
+  {
+    img: "/landing/feature-matching.png",
+    title: "Real-time Messaging",
+    desc: "Connect instantly with your network through private and group real-time chats.",
+  },
+  {
+    img: "/landing/feature-events.png",
+    title: "Smart Discovery",
+    desc: "Find professionals, articles, and groups efficiently with advanced search and filters.",
+  },
+  {
+    img: "/landing/feature-groups.png",
+    title: "Secure Connections",
+    desc: "Enjoy a safe networking environment with robust reporting and secure authentication.",
   },
 ];
 
@@ -52,41 +52,33 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 px-4 md:px-0 bg-[#F7FAF5]">
+    <section id="service" className="py-24 px-4 md:px-0 bg-[#f5fafe]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-3">
-            Features
+            Our Services
           </h2>
           <p className="text-[#636E72] max-w-xl mx-auto">
-            Explore all the tools that make building friendships easier and more
-            fun than ever.
+            Explore all the tools designed to foster professional growth, content creation, and community building.
           </p>
-        </motion.div>
+        </div>
 
         {/* Features Grid */}
-        <motion.div
-          variants={containerVariants}
+        <div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
         >
           {features.map((feat) => (
-            <motion.div
+            <div
               key={feat.title}
-              variants={itemVariants}
               className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-400 cursor-pointer"
             >
               {/* Illustration */}
-              <div className="w-full h-40 rounded-xl bg-[#EFF5EC] flex items-center justify-center mb-5 overflow-hidden">
+              <div className="w-full h-40 rounded-xl bg-[#eef7fc] flex items-center justify-center mb-5 overflow-hidden">
                 <img
                   src={feat.img}
                   alt={feat.title}
@@ -95,31 +87,27 @@ export default function Features() {
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-bold text-[#2D3436] mb-2 group-hover:text-[#2A7B88] transition-colors">
+              <h3 className="text-lg font-bold text-[#2D3436] mb-2 group-hover:text-[#5bb6ea] transition-colors">
                 {feat.title}
               </h3>
               <p className="text-[#636E72] text-sm leading-relaxed">
                 {feat.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* See All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+        <div
           className="text-center"
         >
           <a
             href="#how-it-works"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#2A7B88] text-white font-semibold text-sm hover:bg-[#1F6270] transition-all duration-300 hover:shadow-lg hover:shadow-[#2A7B88]/25"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"
           >
             See All
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

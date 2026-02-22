@@ -4,7 +4,6 @@ import HeroSection from "@/features/landing/components/HeroSection";
 import HelpSection from "@/features/landing/components/HelpSection";
 import Features from "@/features/landing/components/Features";
 import HowItWorks from "@/features/landing/components/HowItWorks";
-import TestimonialsSection from "@/features/landing/components/TestimonialsSection";
 import NewsletterSection from "@/features/landing/components/NewsletterSection";
 import { Footer } from "@/features/landing/components/Footer";
 
@@ -28,8 +27,6 @@ export default function Landing() {
         {/* How It Works Section */}
         <HowItWorks />
 
-        {/* Testimonials Section */}
-        <TestimonialsSection />
 
         {/* Newsletter Section - "Stay up to date" */}
         <NewsletterSection />
