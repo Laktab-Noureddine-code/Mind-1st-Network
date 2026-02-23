@@ -55,7 +55,7 @@ function SignUpPage() {
       subtitle="Enter your details to register your account"
     >
       <form className="space-y-1" onSubmit={handleSubmit(onSubmit)}>
-         <div className="mt-4">
+         <div className="mt-3">
             <label className="block text-xs font-bold text-gray-900 mb-2">
               Full Name*
             </label>
@@ -68,7 +68,7 @@ function SignUpPage() {
                   message: "Name must be at least 3 characters",
                 },
               })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+              className="form-input"
               placeholder="Mohammed Amine"
             />
             {errors.name && (
@@ -76,7 +76,7 @@ function SignUpPage() {
             )}
          </div>
 
-         <div className="mt-4">
+         <div className="mt-3">
             <label className="block text-xs font-bold text-gray-900 mb-2">
               Business Email*
             </label>
@@ -89,7 +89,7 @@ function SignUpPage() {
                   message: "Invalid email address",
                 },
               })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+              className="form-input"
               placeholder="name@example.com"
             />
             {errors.email && (
@@ -97,7 +97,7 @@ function SignUpPage() {
             )}
          </div>
 
-         <div className="mt-4">
+         <div className="mt-3">
             <label className="block text-xs font-bold text-gray-900 mb-2">
               Password*
             </label>
@@ -110,7 +110,7 @@ function SignUpPage() {
                   message: "Password must be at least 8 characters",
                 },
               })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+              className="form-input"
               placeholder="At least 8 characters"
             />
             {errors.password && (
@@ -118,7 +118,7 @@ function SignUpPage() {
             )}
          </div>
 
-         <div className="mt-4">
+         <div className="mt-3">
             <label className="block text-xs font-bold text-gray-900 mb-2">
               Confirm Password*
             </label>
@@ -129,7 +129,7 @@ function SignUpPage() {
                 validate: (value) =>
                   value === watch("password") || "Passwords do not match",
               })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+              className="form-input"
               placeholder="Confirm your password"
             />
             {errors.password_confirmation && (
@@ -139,7 +139,7 @@ function SignUpPage() {
 
          <button
           type="submit"
-          className="w-full bg-[#fcd53f] text-gray-900 py-3 rounded-lg font-bold hover:bg-[#e6c239] transition-colors shadow-md text-sm mt-8"
+          className="w-full bg-primary text-gray-900 py-3 rounded-lg font-bold hover:bg-primary/80 transition-colors shadow-md text-sm mt-8"
           disabled={isLoading}
         >
           {isLoading ? "Creating Account..." : "Register"}
@@ -148,7 +148,7 @@ function SignUpPage() {
         <div className="text-center mt-6">
           <p className="text-xs text-gray-500 font-medium">
             Already have an account?{" "}
-            <Link to="/login" className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors">
+            <Link to="/login" className="font-bold text-gray-900 hover:text-primary transition-colors">
               Log In
             </Link>
           </p>

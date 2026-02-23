@@ -11,6 +11,14 @@ export function capitalizeEachWord(text) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   });
 }
+
+export const getMediaUrl = (url) => {
+  if (!url) return "";
+  if (url.startsWith("http") || url.startsWith("data:")) return url;
+  const backendUrl =
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+  return url.startsWith("/") ? `${backendUrl}${url}` : `${backendUrl}/${url}`;
+};
 export function getNumber(count) {
   if (Array.isArray(count)) {
     if (count.length < 1000) {
@@ -88,28 +96,26 @@ export function groupCover(cover) {
   const backendUrl =
     import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
-  if (cover) {
-    if (cover.startsWith("http") || cover.startsWith("data")) {
-      return cover;
-    } else {
-      return `${backendUrl}${cover}`;
-    }
-  }
-  return defaultCover;
+  if (!cover) return defaultCover;
+  if (cover.startsWith("http") || cover.startsWith("data:")) return cover;
+
+  return cover.startsWith("/")
+    ? `${backendUrl}${cover}`
+    : `${backendUrl}/${cover}`;
 }
+
 export function groupProfile(profile) {
   const defaultprofile =
     "https://i.pinimg.com/736x/b7/80/6e/b7806eb61be831f86a4000f8cde924b1.jpg";
   const backendUrl =
     import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
-  // Check if profile is a full URL or needing the backend prefix
-  if (profile && (profile.startsWith("http") || profile.startsWith("data"))) {
-    return profile;
-  }
-  const profileImage = profile
-    ? `${backendUrl}/storage/${profile}`
-    : defaultprofile;
-  return profileImage;
+
+  if (!profile) return defaultprofile;
+  if (profile.startsWith("http") || profile.startsWith("data:")) return profile;
+
+  return profile.startsWith("/")
+    ? `${backendUrl}${profile}`
+    : `${backendUrl}/${profile}`;
 }
 
 export function userProfile(profile) {
@@ -132,8 +138,9 @@ export function userProfile(profile) {
     return profile.replace("http://127.0.0.1/", `${backendUrl}/`);
   }
 
-  // Si l'URL a déjà le bon prefix mais hardcodé (ex: http://localhost:8000), on pourrait aussi vouloir le normaliser,
-  // mais pour l'instant on garde la logique de remplacement simple ou retour direct.
+  if (profile.startsWith("http") || profile.startsWith("data:")) return profile;
 
-  return profile;
+  return profile.startsWith("/")
+    ? `${backendUrl}${profile}`
+    : `${backendUrl}/${profile}`;
 }

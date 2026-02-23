@@ -1,10 +1,17 @@
-
 import { useState, useEffect } from "react";
 import ImageSkeleton from "@/shared/components/skeletons/SkeletonsImage";
 import Video from "./Video";
 import { ImageOff } from "lucide-react";
 
 /* eslint-disable react/prop-types */
+
+const getMediaUrl = (url) => {
+  if (!url) return "";
+  if (url.startsWith("http") || url.startsWith("data:")) return url;
+  const backendUrl =
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+  return url.startsWith("/") ? `${backendUrl}${url}` : `${backendUrl}/${url}`;
+};
 
 function MediaGallery({ media, onClick }) {
   const [loadedImages, setLoadedImages] = useState({});
@@ -15,7 +22,7 @@ function MediaGallery({ media, onClick }) {
     media.forEach((item, index) => {
       if (!item.type.toString().includes("video")) {
         const img = new Image();
-        img.src = item.url;
+        img.src = getMediaUrl(item.url);
         img.onload = () => {
           setLoadedImages((prev) => ({
             ...prev,
@@ -35,28 +42,30 @@ function MediaGallery({ media, onClick }) {
   if (!media || media.length === 0) return null;
 
   const renderMedia = (item, idx) => {
-    console.log(item.url)
+
+    const url = getMediaUrl(item.url);
+    console.log(url);
     if (item.type.toString().includes("video")) {
       return (
         <div
           className="w-full h-full bg-black rounded-md relative flex items-center justify-center"
-          onClick={()=>onClick(0)}
+          onClick={() => onClick(0)}
         >
           {/* Circle */}
           <div className="w-20 h-20 rounded-full bg-gray-800 bg-opacity-30 flex items-center justify-center">
             {/* Triangle (play icon) */}
             <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-t-transparent border-b-transparent border-l-white ml-1" />
           </div>
-          {/* <Video videoUrl={media[0].url}  onClick={() => onClick(0)} />; */}
+          {/* <Video videoUrl={url}  onClick={() => onClick(0)} />; */}
         </div>
       );
 
-      // return <Video videoUrl={item.url} description={"my first video"} />;
+      // return <Video videoUrl={url} description={"my first video"} />;
     } else {
       return loadedImages[idx] === "loaded" ? (
         <img
           key={idx}
-          src={item.url}
+          src={url}
           alt={`Post image ${idx + 1}`}
           className="w-full h-full object-cover rounded-md"
         />
@@ -78,7 +87,7 @@ function MediaGallery({ media, onClick }) {
       >
         {media[0].type.toString().includes("video") ? (
           <div className="w-full h-auto cursor-pointer flex justify-center items-center ">
-            <Video videoUrl={media[0].url} showVideo={true}  />
+            <Video videoUrl={getMediaUrl(media[0].url)} showVideo={true} />
           </div>
         ) : (
           renderMedia(media[0], 0)
@@ -137,14 +146,16 @@ function MediaGallery({ media, onClick }) {
               idx === 0
                 ? "rounded-tl-md"
                 : idx === 1
-                ? "rounded-tr-md"
-                : idx === 2
-                ? "rounded-bl-md"
-                : "rounded-br-md relative"
+                  ? "rounded-tr-md"
+                  : idx === 2
+                    ? "rounded-bl-md"
+                    : "rounded-br-md relative"
             } cursor-pointer`}
             onClick={() => loadedImages[idx] === "loaded" && onClick(idx)}
           >
-            {idx === 3 && remainingCount > 0 && loadedImages[idx] === "loaded" ? (
+            {idx === 3 &&
+            remainingCount > 0 &&
+            loadedImages[idx] === "loaded" ? (
               <>
                 <div className="brightness-50">{renderMedia(item, idx)}</div>
                 <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-2xl">

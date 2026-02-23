@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import BlogPreview from '../components/BlogPreview';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import BlogPreview from "../components/BlogPreview";
 import api from "@/lib/api";
+import { getMediaUrl } from "@/shared/helpers/helper";
 
 function ViewBlog() {
   const { blogId } = useParams();
@@ -16,7 +17,7 @@ function ViewBlog() {
         const response = await api.get(`/api/blogs/${blogId}`);
         setBlog(response.data);
       } catch (error) {
-        console.error('Error fetching blog:', error);
+        console.error("Error fetching blog:", error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -29,7 +30,9 @@ function ViewBlog() {
   }, [blogId]);
 
   if (loading) {
-    return <div className="flex justify-center items-center h-64">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-64">Loading...</div>
+    );
   }
 
   if (error) {
@@ -45,19 +48,19 @@ function ViewBlog() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">{blog.title}</h1>
         <div className="flex items-center text-gray-600 mb-4">
-          <span>By {blog.author?.name || 'Unknown'}</span>
+          <span>By {blog.author?.name || "Unknown"}</span>
           <span className="mx-2">•</span>
           <span>{new Date(blog.created_at).toLocaleDateString()}</span>
         </div>
         {blog.featured_image && (
-          <img 
-            src={blog.featured_image} 
-            alt={blog.title} 
+          <img
+            src={getMediaUrl(blog.featured_image)}
+            alt={blog.title}
             className="w-full max-h-96 object-cover rounded-lg mb-6"
           />
         )}
       </div>
-      
+
       <BlogPreview content={blog.content} />
     </div>
   );

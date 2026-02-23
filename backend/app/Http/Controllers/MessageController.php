@@ -15,7 +15,7 @@ class MessageController extends Controller
         $request->validate([
             'receiver_id' => 'required|exists:users,id',
             'message' => 'nullable|string',
-            'media' => 'nullable|file|mimes:jpg,jpeg,png,mp4|max:10240',
+            'media' => 'nullable|file|mimes:jpg,jpeg,png,webp,gif,mp4|max:10240',
         ]);
         $mediaPath = null;
         if ($request->hasFile('media')) {
@@ -158,16 +158,16 @@ class MessageController extends Controller
     public function getMessagePartnersAndFriends()
     {
         $user = Auth::user();
-    
+
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
-    
+
         // Get friends (similar to getAmis logic)
         $amis = $user->amis ?? collect();
         $amisOf = $user->amisOf ?? collect();
         $tousAmis = $amis->merge($amisOf);
-    
+
         // Get users who exchanged messages with current user
         $messagePartners = MessageModel::where('sender_id', $user->id)
             ->orWhere('receiver_id', $user->id)
@@ -182,10 +182,10 @@ class MessageController extends Controller
             ->filter()
             ->unique('id')
             ->values();
-    
+
         // Combine and remove duplicates
         $allRelations = $tousAmis->merge($messagePartners)->unique('id')->values();
-    
+
         return response()->json($allRelations);
     }
 }

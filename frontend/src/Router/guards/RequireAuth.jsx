@@ -1,13 +1,13 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 /**
  * Route Guard: RequireAuth
- * 
+ *
  * Protects routes that require authentication.
  * If user is not authenticated, redirects to /login with the attempted location saved.
  * This allows redirecting back to the original page after successful login.
- * 
+ *
  * Usage in Router:
  * <Route element={<RequireAuth />}>
  *   <Route path="feed" element={<FeedPage />} />
@@ -21,10 +21,9 @@ function RequireAuth() {
   // Show loading spinner while checking authentication status
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-50">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
-          <p className="text-gray-600 text-sm">Verifying session...</p>
+      <div class="flex-col gap-4 w-full min-h-screen flex items-center justify-center">
+        <div class="w-20 h-20 border-4 border-transparent text-primary text-4xl animate-spin flex items-center justify-center border-t-primary rounded-full">
+          <div class="w-16 h-16 border-4 border-transparent text-primary/35 text-2xl animate-spin flex items-center justify-center border-t-primary rounded-full"></div>
         </div>
       </div>
     );

@@ -137,6 +137,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm
+  }
 }
 
 * button {

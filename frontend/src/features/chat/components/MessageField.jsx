@@ -102,11 +102,7 @@ function MessageField({ receiverId }) {
                     formData.append('message', message.trim());
                 }
                 formData.append('media', media);
-                await api.post('/api/messages/send', formData, {
-                    headers: {
-                        // Don't set Content-Type with FormData - browser will do it
-                    },
-                });
+                await api.post('/api/messages/send', formData);
             } else {
                 // Use JSON for text-only messages (matching your Postman request)
                 await api.post('/api/messages/send', {

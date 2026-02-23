@@ -69,7 +69,7 @@ function LoginPage() {
                 message: "Invalid email address",
               },
             })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+            className="form-input"
             placeholder="name@example.com"
           />
           {errors.email && (
@@ -90,7 +90,7 @@ function LoginPage() {
                 message: "Password must be at least 6 characters",
               }
             })}
-             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5bb6ea] bg-white text-sm"
+             className="form-input"
              placeholder="Password"
           />
           {errors.password && (
@@ -103,7 +103,7 @@ function LoginPage() {
              <input
                id="remember-me"
                type="checkbox"
-               className="h-4 w-4 text-[#5bb6ea] focus:ring-[#5bb6ea] border-gray-300 rounded cursor-pointer"
+               className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer"
              />
              <label htmlFor="remember-me" className="ml-2 block text-gray-600 font-medium cursor-pointer">
                Remember me
@@ -112,7 +112,7 @@ function LoginPage() {
            
              <Link
             to="/forgot-password"
-            className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors"
+            className="font-bold text-gray-900 hover:text-primary transition-colors"
           >
             Forgot Password?
           </Link>
@@ -120,7 +120,7 @@ function LoginPage() {
 
         <button
           type="submit"
-          className="w-full bg-[#fcd53f] text-gray-900 py-3 rounded-lg font-bold hover:bg-[#e6c239] transition-colors shadow-md text-sm"
+          className="w-full bg-primary text-gray-900 py-3 rounded-lg font-bold hover:bg-primary/80 transition-colors shadow-md text-sm"
           disabled={isLoading}
         >
           {isLoading ? "Logging in..." : "Login"}
@@ -129,7 +129,7 @@ function LoginPage() {
         <div className="text-center mt-6">
           <p className="text-xs text-gray-500 font-medium">
             Don't have an account?{" "}
-            <Link to="/register" className="font-bold text-gray-900 hover:text-[#5bb6ea] transition-colors">
+            <Link to="/register" className="font-bold text-gray-900 hover:text-primary transition-colors">
               Sign Up
             </Link>
           </p>
