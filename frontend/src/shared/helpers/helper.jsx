@@ -1,4 +1,4 @@
-export const appLogo = "/logo.jpg";
+export const appLogo = "logo.svg";
 
 export function formatDate(data_s) {
   const date = new Date(data_s);

@@ -1,123 +1,64 @@
-# 🌐 Professional Social Network Platform
+# Mind 1st Network (M1N) - Social Media Platform
 
-A full-stack social network web application built to foster professional and community interactions through blogging, pages, and groups. Developed as a final project at OFPPT – ISTA Bouznika.
+Mind 1st Network is a comprehensive social media platform built with Laravel (Backend) and React (Frontend). Below is the complete list of main features implemented in the application:
 
-## 📌 Project Overview
+### 1. 🔐 User Authentication & Account Management
 
-This platform allows users to create and manage profiles, join or create groups and pages, write blog articles, and communicate through real-time messaging. It supports a diverse range of user types such as individuals, content creators, professionals, and communities.
+- Account Registration and Login
+- Secure Authentication
+- Password Recovery and Reset flows
+- User Account Settings and Preferences
 
-## ✨ Features
+### 2. 👤 User Profiles
 
-- 🔐 Secure authentication (login, registration, password reset)
-- 👤 Profile creation and customization
-- 📝 Blog system: Write and manage personal, group, or page-based articles
-- 📄 Pages & 👥 Groups: Create thematic or professional spaces
-- 💬 Real-time messaging (private & group chats) using WebSocket
-- 🔍 Smart search and filters across all entities
-- 📥 Save and report content
-- 📱 Fully responsive interface (mobile, tablet, desktop)
+- Detailed User Profiles
+- Profile Picture and Cover Photo management
+- User details editing
+- Viewing other users' profiles
 
-## 🧰 Tech Stack
+### 3. 🤝 Networking & Connections
 
-### Frontend
+- **Friend System:** Sending, accepting, and managing friend requests/connections
+- **Global Search:** Searching for other users, groups, or pages across the platform
 
-- **React.js** – Main framework
-- **TailwindCSS** – For responsive utility-first design
-- **Redux Toolkit** – State management
-- **Tiptap** – Rich text editor (with image, code, YouTube extensions)
-- **Framer Motion** – Animations
-- **Radix UI & MUI** – UI components
-- **Axios** – API requests
-- **React Hook Form** – Form handling
-- **Pusher JS** – Real-time WebSocket communication
+### 4. 📰 News Feed & Posts (Publications)
 
-### Backend
+- **Creating Posts:** Text and media-rich posts
+- **Interactions:** Liking, reacting to, and commenting on posts
+- **Sharing:** Sharing existing posts
+- **Content Curation:** Saving/bookmarking posts for later
+- **Feed Management:** Hiding unwanted posts from the timeline
+- **Content Moderation:** Reporting inappropriate posts
 
-- **Laravel** – PHP framework for backend logic
-- **Laravel Sanctum / JWT** – Token-based authentication
-- **MySQL** – Relational database
-- **Laravel Queues** – Background job processing
-- **Pusher (WebSockets)** – Real-time messaging and notifications
+### 5. 💬 Real-Time Messaging & Chat
 
-## 🚀 Getting Started
+- **Direct Messaging:** Private 1-on-1 real-time chat between users
+- **Real-Time Engine:** Built with Laravel Reverb/Pusher for instant delivery of messages and events without refreshing
 
-### Prerequisites
+### 6. 🏘️ Groups & Communities
 
-- Node.js (v18+)
-- Composer
-- PHP (v8+)
-- MySQL
-- Laravel CLI
+- Creating and managing interest-based Groups
+- Group invitations and membership management
+- Dedicated group messaging and discussions
+- Group-specific feeds and posts
 
-### 1. Clone the repository
+### 7. 📄 Pages
 
-git clone https://github.com/Laktab-Noureddine-code/Social-blog-application.git
-cd Social-blog-application
+- Creating Pages (commonly used for businesses, public figures, or communities)
+- Page management and interactions
 
-### 2. Setup Backend (Laravel)
+### 8. ✍️ Blogs & Articles
 
-- cd backend
-- composer install
-- cp .env.example .env
-- php artisan key:generate
-- # Configure .env with DB credentials
-- php artisan migrate
-- php artisan serve
+- Authoring and publishing long-form blog posts/articles
+- Commenting specifically on blogs
+- Saving/bookmarking favorite blogs for offline or later reading
 
-### 3. Setup Frontend (React)
+### 9. 🔔 Notification System
 
-cd frontend
+- Real-time alerts for platform activities (e.g., new messages, friend requests, likes, comments on your posts)
 
-- npm install
-- npm run dev
+### 10. 🛡️ Admin Dashboard & Moderation
 
-## 🐳 Docker Deployment
-
-### Local Development & Testing
-
-1. **Build and Start Containers**
-
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Initialize Backend** (in a new terminal)
-
-   ```bash
-   # Install dependencies
-   docker-compose exec backend-app composer install
-
-   # Run migrations
-   docker-compose exec backend-app php artisan migrate
-
-   # Link storage
-   docker-compose exec backend-app php artisan storage:link
-   ```
-
-3. **Access Application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000/api
-   - PhpMyAdmin/DB: Port 3306
-
-### ☁️ Pushing to Docker Hub
-
-1. **Login to Docker Hub**
-
-   ```bash
-   docker login
-   ```
-
-2. **Tag Images**
-
-   ```bash
-   docker tag social_blog_frontend yourusername/social-blog-frontend:production
-   docker tag social_blog_backend_app yourusername/social-blog-backend-app:production
-   docker tag social_blog_backend_web yourusername/social-blog-backend-web:production
-   ```
-
-3. **Push Images**
-   ```bash
-   docker push yourusername/social-blog-frontend:production
-   docker push yourusername/social-blog-backend-app:production
-   docker push yourusername/social-blog-backend-web:production
-   ```
+- Administrative control panel to oversee the platform
+- Handling elevation requests (e.g., becoming an admin)
+- Reviewing reported content and applying moderation

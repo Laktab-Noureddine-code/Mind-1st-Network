@@ -16,8 +16,9 @@ export default function NewsletterSection() {
             Contact Us
           </h2>
           <p className="text-[#636E72] mb-8 text-lg">
-            Stay in touch and never miss the latest updates, trending professional articles,
-            and networking opportunities. Reach out for any inquiries.
+            Stay in touch and never miss the latest campus updates, trending
+            academic articles, and study module opportunities. Reach out for any
+            inquiries.
           </p>
 
           {/* Email Form */}

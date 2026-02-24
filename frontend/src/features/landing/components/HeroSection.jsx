@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white">
-     
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -19,11 +18,15 @@ function HeroSection() {
           {/* Right Content - Text */}
           <div className="text-center lg:text-left order-1 lg:order-2">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#5bb6ea] leading-tight mb-4 drop-shadow-sm">
-              Professional
-              <span className="block text-[#202a44] font-black tracking-tight mt-1">SOCIAL NETWORK</span>
+              Academic
+              <span className="block text-[#202a44] font-black tracking-tight mt-1">
+                LEARNING NETWORK
+              </span>
             </h1>
             <p className="text-[#636E72] text-sm md:text-base mb-8 max-w-lg mx-auto lg:mx-0 font-medium">
-              A full-stack social network web application built to foster professional and community interactions through blogging, pages, and groups. Create profiles, write articles, and connect with your community.
+              A distraction-free academic platform built to foster student
+              success. Create your academic profile, join study modules, and
+              collaborate through our rich-text Academic Wiki.
             </p>
 
             {/* CTA Buttons */}
@@ -44,7 +47,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      
+
       {/* Diagonal divider */}
       <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
         <svg

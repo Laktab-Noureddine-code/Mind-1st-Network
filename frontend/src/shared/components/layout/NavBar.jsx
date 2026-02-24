@@ -24,7 +24,7 @@ export default function Navbar({ setIsMobileOpen }) {
           <Menu size={20} />
         </button>
         <Link to="/feed">
-            <img src="/logo.png" loading="lazy" className="h-10" />
+            <img src="/logo.svg" loading="lazy" className="h-10" />
         </Link>
       </div>
 

@@ -3,33 +3,33 @@ import { motion } from "framer-motion";
 const features = [
   {
     img: "/landing/feature-matching.png",
-    title: "Professional Profiles",
-    desc: "Create and customize your professional identity to showcase your skills and stand out.",
+    title: "Academic Profiles",
+    desc: "Create your student identity, listing your university, major, and technical skills.",
   },
   {
     img: "/landing/feature-events.png",
-    title: "Blogging Platform",
-    desc: "Write and manage personal, group, or page-based articles to share your expertise.",
+    title: "Academic Wiki",
+    desc: "Write and manage detailed tutorials, lecture notes, or code snippets with our rich-text editor.",
   },
   {
     img: "/landing/feature-groups.png",
-    title: "Pages & Groups",
-    desc: "Create thematic or professional spaces to build and engage with your community.",
+    title: "Study Modules & Pages",
+    desc: "Create dedicated spaces for your courses, share resources, and broadcast to your peers.",
   },
   {
     img: "/landing/feature-matching.png",
-    title: "Real-time Messaging",
-    desc: "Connect instantly with your network through private and group real-time chats.",
+    title: "Real-Time Support",
+    desc: "Connect instantly with study partners or module groups via live WebSockets chat.",
   },
   {
     img: "/landing/feature-events.png",
-    title: "Smart Discovery",
-    desc: "Find professionals, articles, and groups efficiently with advanced search and filters.",
+    title: "Global Search",
+    desc: "Find professors, fellow students, and academic wikis efficiently with smart search and tags.",
   },
   {
     img: "/landing/feature-groups.png",
-    title: "Secure Connections",
-    desc: "Enjoy a safe networking environment with robust reporting and secure authentication.",
+    title: "Distraction-Free Feed",
+    desc: "Stay focused with a curated stream of helpful academic content from the modules and peers you follow.",
   },
 ];
 
@@ -55,14 +55,13 @@ export default function Features() {
     <section id="service" className="py-24 px-4 md:px-0 bg-[#f5fafe]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-3">
-            Our Services
+            Academic Features
           </h2>
           <p className="text-[#636E72] max-w-xl mx-auto">
-            Explore all the tools designed to foster professional growth, content creation, and community building.
+            Explore advanced tools designed specifically for academic
+            collaboration, knowledge sharing, and student focused growth.
           </p>
         </div>
 
@@ -98,9 +97,7 @@ export default function Features() {
         </div>
 
         {/* See All Button */}
-        <div
-          className="text-center"
-        >
+        <div className="text-center">
           <a
             href="#how-it-works"
             className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"

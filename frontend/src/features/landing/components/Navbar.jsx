@@ -19,7 +19,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "#home", label: "HOME" },
     { href: "#about", label: "ABOUT" },
-    { href: "#portfolio", label: "PORTFOLIO" },
+    { href: "#portfolio", label: "HOW IT WORKS" },
     { href: "#service", label: "SERVICE" },
     { href: "#contact", label: "CONTACT" },
   ];
@@ -41,7 +41,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/logo.png"
+              src="/logo.svg"
               className={`transition-all duration-300 ${
                 scrolled ? "h-9" : "h-11"
               }`}
@@ -101,42 +101,39 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        
-          {isOpen && (
-            <div
-              className="md:hidden overflow-hidden"
-            >
-              <div className="py-4 space-y-2 border-t border-gray-200 mt-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <div className="pt-4 border-t border-gray-200 space-y-2">
-                  <Link
-                    to="/login"
-                    className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Log In
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="block px-4 py-3 rounded-full bg-[#5bb6ea] text-white text-center font-semibold"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </div>
+
+        {isOpen && (
+          <div className="md:hidden overflow-hidden">
+            <div className="py-4 space-y-2 border-t border-gray-200 mt-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="pt-4 border-t border-gray-200 space-y-2">
+                <Link
+                  to="/login"
+                  className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Log In
+                </Link>
+                <Link
+                  to="/register"
+                  className="block px-4 py-3 rounded-full bg-[#5bb6ea] text-white text-center font-semibold"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Sign Up
+                </Link>
               </div>
             </div>
-          )}
-        
+          </div>
+        )}
       </div>
     </nav>
   );

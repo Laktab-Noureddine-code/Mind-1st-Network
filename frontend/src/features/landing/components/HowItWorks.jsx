@@ -4,26 +4,26 @@ const steps = [
   {
     num: "01",
     img: "/landing/feature-matching.png",
-    title: "Setup Your Profile",
-    desc: "Create your professional identity, list your skills, and let others discover your expertise.",
+    title: "Setup Academic Profile",
+    desc: "Create your student identity, listing your major, university, and technical skills.",
   },
   {
     num: "02",
     img: "/landing/feature-events.png",
-    title: "Join or Create Spaces",
-    desc: "Discover engaging groups and pages, or build your own community around specific topics.",
+    title: "Join Study Modules",
+    desc: "Find dedicated groups and spaces aligned with your specific coursework and interests.",
   },
   {
     num: "03",
     img: "/landing/feature-groups.png",
-    title: "Share Your Knowledge",
-    desc: "Write enriched articles with our robust editor to establish your professional presence.",
+    title: "Publish to Wiki",
+    desc: "Write enriched lecture notes and code tutorials to share your academic insights.",
   },
   {
     num: "04",
     img: "/landing/hero-friends.png",
-    title: "Build Connections",
-    desc: "Message directly, participate in discussions, and expand your professional network.",
+    title: "Engage & Collaborate",
+    desc: "Message peers directly, join study group discussions, and curate your campus feed.",
   },
 ];
 
@@ -32,25 +32,20 @@ export default function HowItWorks() {
     <section id="portfolio" className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-3">
-            Portfolio
+            How It Works
           </h2>
           <p className="text-[#636E72] max-w-xl mx-auto">
-            Getting started is simple. Follow these easy steps to start making
-            meaningful connections.
+            Your path to academic collaboration is simple. Follow these steps to
+            start expanding your knowledge network.
           </p>
         </div>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {steps.map((step, index) => (
-            <div
-              key={step.num}
-              className="text-center group"
-            >
+            <div key={step.num} className="text-center group">
               {/* Step Number */}
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#5bb6ea] text-white font-bold text-sm mb-5">
                 {step.num}
@@ -77,9 +72,7 @@ export default function HowItWorks() {
         </div>
 
         {/* CTA button */}
-        <div
-          className="text-center"
-        >
+        <div className="text-center">
           <a
             href="#testimonials"
             className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"

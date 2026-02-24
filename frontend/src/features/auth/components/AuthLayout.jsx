@@ -10,7 +10,7 @@ export default function AuthLayout({ children, title, subtitle }) {
       <div className="absolute top-0 w-full p-6 sm:p-10 flex justify-between items-center z-20">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="/logo.png"
+            src="/logo.svg"
             alt="Logo"
             className="h-8 md:h-10 object-contain"
           />

@@ -42,9 +42,7 @@ function MediaGallery({ media, onClick }) {
   if (!media || media.length === 0) return null;
 
   const renderMedia = (item, idx) => {
-
     const url = getMediaUrl(item.url);
-    console.log(url);
     if (item.type.toString().includes("video")) {
       return (
         <div

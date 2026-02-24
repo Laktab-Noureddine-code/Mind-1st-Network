@@ -1,46 +1,53 @@
 import { motion } from "framer-motion";
-import { Search, CalendarDays, Users, MessageCircle, TrendingUp, MapPin } from "lucide-react";
+import {
+  Search,
+  CalendarDays,
+  Users,
+  MessageCircle,
+  TrendingUp,
+  MapPin,
+} from "lucide-react";
 
 const helpCards = [
   {
     icon: <Search size={22} />,
-    title: "Discover Professionals",
-    desc: "Find people with similar expertise and goals.",
+    title: "Academic Profiles",
+    desc: "Showcase your university, major, and growing technical skills.",
     color: "text-[#5bb6ea]",
     bg: "bg-[#5bb6ea]/10",
   },
   {
     icon: <CalendarDays size={22} />,
-    title: "Join Communities",
-    desc: "Engage with thematic groups and pages.",
+    title: "Study Modules",
+    desc: "Join course-focused groups to access shared resources and announcements.",
     color: "text-[#E17055]",
     bg: "bg-[#E17055]/10",
   },
   {
     icon: <Users size={22} />,
-    title: "Read & Write",
-    desc: "Share your knowledge through blog articles.",
+    title: "Academic Wiki",
+    desc: "Publish long-form tutorials, code snippets, and structured lecture notes.",
     color: "text-[#6C5CE7]",
     bg: "bg-[#6C5CE7]/10",
   },
   {
     icon: <MessageCircle size={22} />,
-    title: "Real-time Chat",
-    desc: "Message connections instantly through WebSockets.",
+    title: "Real-Time Support",
+    desc: "Get instant study help via 1-on-1 and study module chat rooms.",
     color: "text-[#00B894]",
     bg: "bg-[#00B894]/10",
   },
   {
     icon: <TrendingUp size={22} />,
-    title: "Trending Topics",
-    desc: "Stay updated on industry trends and discussions.",
+    title: "Distraction-Free Feed",
+    desc: "A strictly curated stream from your modules, peers, and academic pages.",
     color: "text-[#FDCB6E]",
     bg: "bg-[#FDCB6E]/20",
   },
   {
     icon: <MapPin size={22} />,
-    title: "Smart Network",
-    desc: "Connect seamlessly and grow your professional circle.",
+    title: "Global Discovery",
+    desc: "Explore tags, students, and professors to expand your academic insights.",
     color: "text-[#E84393]",
     bg: "bg-[#E84393]/10",
   },
@@ -69,9 +76,7 @@ export default function HelpSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Illustration */}
-          <div
-            className="flex justify-center"
-          >
+          <div className="flex justify-center">
             <img
               src="/landing/hero-friends.png"
               alt="Friends connecting"
@@ -80,14 +85,14 @@ export default function HelpSection() {
           </div>
 
           {/* Right - Content */}
-          <div
-          >
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-4">
-              About
-              <span className="block text-[#5bb6ea]">Us</span>
+              Platform
+              <span className="block text-[#5bb6ea]">Pillars</span>
             </h2>
             <p className="text-[#636E72] mb-8 text-lg">
-              Our platform makes it easy to connect with professionals, join driven communities, and share your expertise.
+              Our platform connects students with shared goals, academic
+              modules, and the resources to succeed.
             </p>
 
             {/* Icon Cards Grid */}
