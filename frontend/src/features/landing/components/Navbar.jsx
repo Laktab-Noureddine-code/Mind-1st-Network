@@ -20,7 +20,7 @@ export default function Navbar() {
     { href: "#home", label: "HOME" },
     { href: "#about", label: "ABOUT" },
     { href: "#portfolio", label: "HOW IT WORKS" },
-    { href: "#service", label: "SERVICE" },
+    { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "CONTACT" },
   ];
 
@@ -56,8 +56,8 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-bold text-sm tracking-wide transition-all duration-300 hover:text-[#4a96c4] ${
-                  scrolled ? "text-[#5bb6ea]" : "text-[#5bb6ea]"
+                className={`font-bold text-sm tracking-wide transition-all duration-300 hover:text-secondary/80 ${
+                  scrolled ? "text-secondary" : "text-secondary"
                 }`}
               >
                 {link.label}
@@ -70,8 +70,8 @@ export default function Navbar() {
             {/* Login Link */}
             <Link
               to="/login"
-              className={`hidden sm:block font-medium text-sm transition-all duration-300 hover:text-[#5bb6ea] ${
-                scrolled ? "text-[#2D3436]" : "text-[#2D3436]/80"
+              className={`hidden md:block font-medium text-sm transition-all duration-300 hover:text-secondary/80 ${
+                scrolled ? "text-secondary" : "text-secondary/80"
               }`}
             >
               Log In
@@ -80,14 +80,14 @@ export default function Navbar() {
             {/* Sign Up Button */}
             <Link
               to="/register"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#5bb6ea] text-white font-semibold text-sm hover:bg-[#4a96c4] transition-all duration-300 hover:shadow-lg hover:shadow-[#5bb6ea]/25"
+              className="my-btn hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-app-primary text-white font-semibold text-sm hover:bg-secondary/80 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/25"
             >
               Sign Up
             </Link>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg text-[#2D3436] hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg text-secondary hover:bg-gray-100 transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -100,40 +100,46 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-
-        {isOpen && (
-          <div className="md:hidden overflow-hidden">
-            <div className="py-4 space-y-2 border-t border-gray-200 mt-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="pt-4 border-t border-gray-200 space-y-2">
-                <Link
-                  to="/login"
-                  className="block px-4 py-3 rounded-xl text-[#2D3436] hover:bg-[#eef7fc] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Log In
-                </Link>
-                <Link
-                  to="/register"
-                  className="block px-4 py-3 rounded-full bg-[#5bb6ea] text-white text-center font-semibold"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Sign Up
-                </Link>
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-50"
+            >
+              <div className="p-4 space-y-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block px-4 py-3 rounded-xl font-medium text-secondary hover:bg-[#eef7fc] hover:text-app-primary transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <div className="pt-4 mt-2 border-t border-gray-100 space-y-3">
+                  <Link
+                    to="/login"
+                    className="my-btn w-full block px-4 py-3 text-center text-secondary font-medium hover:bg-[#eef7fc] transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Log In
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="my-btn w-full block px-4 py-3 bg-app-primary text-white text-center font-semibold rounded-xl shadow-md hover:bg-secondary/80 transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

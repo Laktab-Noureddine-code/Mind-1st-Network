@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const socialLinks = [
   { icon: <Facebook size={20} />, url: "#", label: "Facebook" },
@@ -29,7 +28,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
-                className="p-2 rounded-full text-[#636E72] hover:text-[#5bb6ea] hover:bg-[#eef7fc] transition-all duration-300"
+                className="p-2  text-[#636E72] hover:text-app-primary hover:bg-app-primary/10 transition-all duration-300"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -39,7 +38,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-[#636E72] text-sm">
-            &copy; {new Date().getFullYear()} Noureddine & Mohammed. All rights
+            &copy; {new Date().getFullYear()} Noureddine. All rights
             reserved.
           </p>
         </div>

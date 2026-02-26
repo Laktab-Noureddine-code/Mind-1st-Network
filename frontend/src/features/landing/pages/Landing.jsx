@@ -1,10 +1,10 @@
 // Components
 import Navbar from "@/features/landing/components/Navbar";
 import HeroSection from "@/features/landing/components/HeroSection";
-import HelpSection from "@/features/landing/components/HelpSection";
 import Features from "@/features/landing/components/Features";
 import HowItWorks from "@/features/landing/components/HowItWorks";
 import NewsletterSection from "@/features/landing/components/NewsletterSection";
+import FaqSection from "@/features/landing/components/FaqSection";
 import { Footer } from "@/features/landing/components/Footer";
 
 export default function Landing() {
@@ -18,15 +18,14 @@ export default function Landing() {
         {/* Hero Section */}
         <HeroSection />
 
-        {/* Help Section - "We're here to help you find new friends" */}
-        <HelpSection />
-
         {/* Features Section */}
         <Features />
 
         {/* How It Works Section */}
         <HowItWorks />
 
+        {/* FAQ Section */}
+        <FaqSection />
 
         {/* Newsletter Section - "Stay up to date" */}
         <NewsletterSection />
