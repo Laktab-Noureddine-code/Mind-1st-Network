@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -11,9 +12,20 @@ export default function NewsletterSection() {
   return (
     <section id="contact" className="py-20 px-4 bg-[#eef7fc]">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-2xl mx-auto text-center">
+        <motion.div
+          className="max-w-2xl mx-auto text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="flex items-center">
-            <img src="/landing/plane.svg" alt="plane svg" loading="lazy" className="w-20 h-20" />
+            <img
+              src="/landing/plane.svg"
+              alt="plane svg"
+              loading="lazy"
+              className="w-20 h-20"
+            />
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-4">
               Contact Us
             </h2>
@@ -48,7 +60,7 @@ export default function NewsletterSection() {
           <p className="text-[#636E72] text-xs mt-4">
             📬 We respect your privacy and won't send spam.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

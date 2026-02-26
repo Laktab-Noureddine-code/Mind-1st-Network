@@ -76,14 +76,17 @@ export default function Features() {
             </p>
 
             {/* Icon Cards Grid */}
-            <div
+            <motion.div
               initial="hidden"
               whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={containerVariants}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
               {helpCards.map((card) => (
-                <div
+                <motion.div
                   key={card.title}
+                  variants={itemVariants}
                   className="bg-white cursor-pointer rounded-2xl border hover:border-[#9fdcff] p-4 shadow-sm group relative overflow-hidden z-0"
                 >
                   <div className="absolute h-[5em] w-[5em] -top-[2.5em] -right-[2.5em] rounded-full bg-[#5bb6ea] group-hover:scale-[800%] duration-500 z-[-1]"></div>
@@ -104,9 +107,9 @@ export default function Features() {
                   <p className="text-[#3b4042] text-sm leading-relaxed duration-500">
                     {card.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

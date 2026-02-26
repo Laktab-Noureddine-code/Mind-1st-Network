@@ -8,13 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Register a new user and issue a Personal Access Token.
-     *
-     * POST /api/register
-     * Body: { name, email, password, password_confirmation }
-     * Returns: { token, user }
-     */
+    
     public function register(Request $request)
     {
         $validated = $request->validate([

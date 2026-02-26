@@ -36,7 +36,13 @@ export default function FaqSection() {
   return (
     <section id="faq" className="py-24 px-4 bg-white relative">
       <div className="max-w-3xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="flex items-center justify-center gap-4">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-4">
               Frequently Asked{" "}
@@ -52,15 +58,19 @@ export default function FaqSection() {
           <p className="text-[#636E72] text-lg">
             Everything you need to know about the platform.
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className={`border border-gray-100 rounded-2xl overflow-hidden transition-all duration-300 ${
                   isOpen
                     ? "bg-[#fcfcfc] shadow-md border-app-primary/30"
@@ -106,7 +116,7 @@ export default function FaqSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

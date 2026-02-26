@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -32,7 +33,13 @@ export default function HowItWorks() {
     <section id="portfolio" className="py-24 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="flex items-center justify-center">
             <img src="/landing/work.svg" alt="plan" className="h-20 w-20" />
             <h2 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-3">
@@ -43,7 +50,7 @@ export default function HowItWorks() {
             Your path to academic collaboration is simple. Follow these steps to
             start expanding your knowledge network.
           </p>
-        </div>
+        </motion.div>
 
         {/* Steps List */}
         <div className="max-w-5xl mx-auto mb-12 relative flex flex-col gap-12 md:gap-17">
@@ -80,8 +87,12 @@ export default function HowItWorks() {
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
             return (
-              <div
+              <motion.div
                 key={step.num}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
                   !isEven ? "md:flex-row-reverse" : ""
                 }`}
@@ -121,7 +132,7 @@ export default function HowItWorks() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
