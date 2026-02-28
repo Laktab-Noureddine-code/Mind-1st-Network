@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Lock, Mail } from "lucide-react";
 import api from "@/lib/api";
+import AuthLayout from "./AuthLayout";
 
 function ResetPassword() {
   const navigate = useNavigate();
@@ -48,99 +49,87 @@ function ResetPassword() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-        <div className="p-6 border-b border-gray-200 bg-black text-white">
-          <h2 className="text-2xl font-bold text-center">
-            Reset Password
-          </h2>
-          <p className="text-center text-gray-300 mt-1">
-            Enter a new password for the address{" "}
-            <strong>{email}</strong>
-          </p>
-        </div>
-
-        <div className="p-6">
-          {isSuccess ? (
-            <div className="bg-green-50 border border-green-200 text-green-700 p-4 rounded-md mb-4">
-              Password reset successfully. Redirecting...
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md">
-                  {error}
-                </div>
-              )}
-              <div className="space-y-2">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  New Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="********"
-                    className="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
+    <AuthLayout
+      title="Reset Password"
+      subtitle={`Enter a new password for ${email}`}
+    >
+      <div className="w-full">
+        {isSuccess ? (
+          <div className="bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl mb-4 text-sm text-center">
+            Password reset successfully. Redirecting to login...
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-sm text-center">
+                {error}
               </div>
-
-              <div className="space-y-2">
-                <label
-                  htmlFor="passwordConfirmation"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Confirm Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
-                  <input
-                    id="passwordConfirmation"
-                    type="password"
-                    placeholder="********"
-                    className="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-                    value={passwordConfirmation}
-                    onChange={(e) => setPasswordConfirmation(e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className={`w-full px-4 py-2 text-white font-medium rounded-md ${
-                  isSubmitting
-                    ? "bg-gray-600 cursor-not-allowed"
-                    : "bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                }`}
-                disabled={isSubmitting}
+            )}
+            <div className="space-y-2">
+              <label
+                htmlFor="password"
+                className="block text-xs font-bold text-gray-900 mb-1 ml-1 px-1"
               >
-                {isSubmitting
-                  ? "Resetting..."
-                  : "Reset Password"}
-              </button>
-            </form>
-          )}
-        </div>
+                New Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="********"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 pl-10 focus:outline-none focus:ring-2 focus:ring-app-primary/20 focus:border-app-primary transition-colors text-sm"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
 
-        <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex justify-center">
-          <Link
-            to="/login"
-            className="text-sm text-gray-800 hover:text-black underline underline-offset-4"
-          >
-            Back to Login
-          </Link>
-        </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="passwordConfirmation"
+                className="block text-xs font-bold text-gray-900 mb-1 ml-1 px-1"
+              >
+                Confirm Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <input
+                  id="passwordConfirmation"
+                  type="password"
+                  placeholder="********"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 pl-10 focus:outline-none focus:ring-2 focus:ring-app-primary/20 focus:border-app-primary transition-colors text-sm"
+                  value={passwordConfirmation}
+                  onChange={(e) => setPasswordConfirmation(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className={`w-full text-white py-3.5 rounded-xl font-bold transition-all shadow-md mt-8 text-sm ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-app-primary hover:bg-[#4a96c4] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-app-primary/30"
+              }`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Resetting..." : "Reset Password"}
+            </button>
+            <div className="text-center mt-6">
+              <Link
+                to="/login"
+                className="text-xs font-bold text-gray-500 hover:text-app-primary transition-colors"
+              >
+                Back to Login
+              </Link>
+            </div>
+          </form>
+        )}
       </div>
-    </div>
+    </AuthLayout>
   );
 }
 

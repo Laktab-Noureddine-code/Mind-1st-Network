@@ -18,7 +18,7 @@ function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: "onSubmit",
   });
 
   const onSubmit = async (data) => {
@@ -60,24 +60,8 @@ function LoginPage() {
         )}
 
         <div className="relative">
-          <div className="absolute inset-y-0 right-0 top-6 flex items-center pr-2 pointer-events-none text-gray-400">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-          </div>
-          <label className="block text-xs font-bold text-gray-900 mb-1">
-            Email Address
+          <label className="form-label">
+            Email*
           </label>
           <input
             type="email"
@@ -88,33 +72,17 @@ function LoginPage() {
                 message: "Invalid email address",
               },
             })}
-            className="w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-2 focus:ring-0 focus:border-app-primary transition-colors text-sm"
-            placeholder="name@example.com"
+            className="form-input"
+            placeholder="Enter Email"
           />
           {errors.email && (
             <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
           )}
         </div>
 
-        <div className="mt-6 relative">
-          <div className="absolute inset-y-0 right-0 top-6 flex items-center pr-2 pointer-events-none text-gray-400">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-          </div>
-          <label className="block text-xs font-bold text-gray-900 mb-1">
-            Password
+        <div className="mt-4 relative">
+          <label className="form-label">
+            Password*
           </label>
           <input
             type="password"
@@ -125,8 +93,8 @@ function LoginPage() {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className="w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-2 focus:ring-0 focus:border-app-primary transition-colors text-sm"
-            placeholder="Password"
+            className="form-input pr-12"
+            placeholder="Passcode"
           />
           {errors.password && (
             <p className="text-red-500 text-xs mt-1">
@@ -135,35 +103,24 @@ function LoginPage() {
           )}
         </div>
 
-        <div className="flex items-center justify-between mt-6 mb-8 text-xs">
-          <div className="flex items-center">
-            <input
-              id="remember-me"
-              type="checkbox"
-              className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer"
-            />
-            <label
-              htmlFor="remember-me"
-              className="ml-2 block text-gray-600 font-medium cursor-pointer"
-            >
-              Remember me
-            </label>
-          </div>
-
+        <div className="flex items-center justify-between mt-6 mb-6 text-xs px-1">
+          <span className="text-gray-500 font-medium">
+            Having trouble in sign in?
+          </span>
           <Link
             to="/forgot-password"
-            className="font-bold text-gray-900 hover:text-primary transition-colors"
+            className="font-bold text-gray-900 hover:text-app-primary transition-colors"
           >
-            Forgot Password?
+            Recover
           </Link>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-[#5bb6ea] text-white py-3 rounded-lg font-bold hover:bg-[#4a96c4] transition-colors shadow-md text-sm"
+          className="w-full bg-[#5bb6ea] text-white py-3.5 rounded-xl font-bold hover:bg-[#4a96c4] hover:-translate-y-0.5 transition-all shadow-md hover:shadow-lg hover:shadow-app-primary/30 text-sm"
           disabled={isLoading}
         >
-          {isLoading ? "Logging in..." : "Log in"}
+          {isLoading ? "Logging in..." : "Sign in"}
         </button>
       </form>
     </AuthLayout>

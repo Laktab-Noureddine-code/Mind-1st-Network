@@ -19,7 +19,7 @@ function SignUpPage() {
     setError,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: "onSubmit",
   });
 
   const onSubmit = async (data) => {
@@ -56,7 +56,7 @@ function SignUpPage() {
     >
       <form className="space-y-1" onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-3">
-          <label className="block text-xs font-bold text-gray-900 mb-2">
+          <label className="block text-xs font-bold text-gray-900 mb-1 ml-1 px-1">
             Full Name*
           </label>
           <input
@@ -76,8 +76,8 @@ function SignUpPage() {
           )}
         </div>
 
-        <div className="mt-3">
-          <label className="block text-xs font-bold text-gray-900 mb-2">
+        <div className="mt-3 relative">
+          <label className="block text-xs font-bold text-gray-900 mb-1 ml-1 px-1">
             Business Email*
           </label>
           <input
@@ -97,8 +97,8 @@ function SignUpPage() {
           )}
         </div>
 
-        <div className="mt-3">
-          <label className="block text-xs font-bold text-gray-900 mb-2">
+        <div className="mt-3 relative">
+          <label className="form-label">
             Password*
           </label>
           <input
@@ -117,11 +117,11 @@ function SignUpPage() {
             <p className="text-red-500 text-xs mt-1">
               {errors.password.message}
             </p>
-          )}
+          )} 
         </div>
 
-        <div className="mt-3">
-          <label className="block text-xs font-bold text-gray-900 mb-2">
+        <div className="mt-3 relative">
+          <label className="block text-xs font-bold text-gray-900 mb-1 ml-1 px-1">
             Confirm Password*
           </label>
           <input
@@ -141,13 +141,15 @@ function SignUpPage() {
           )}
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-[#5bb6ea] text-white py-3 rounded-lg font-bold hover:bg-[#4a96c4] transition-colors shadow-md text-sm mt-8"
-          disabled={isLoading}
-        >
-          {isLoading ? "Creating Account..." : "Register"}
-        </button>
+        <div className="mt-8 mb-4">
+          <button
+            type="submit"
+            className="my-btn w-full bg-[#5bb6ea] text-white font-bold hover:bg-[#4a96c4] hover:-translate-y-0.5 transition-all shadow-md hover:shadow-lg hover:shadow-app-primary/30 text-sm"
+            disabled={isLoading}
+          >
+            {isLoading ? "Creating Account..." : "Create Account"}
+          </button>
+        </div>
       </form>
     </AuthLayout>
   );

@@ -14,6 +14,7 @@
  *     ├── /search
  *     ├── /chat, /chat/:chatId
  *     ├── /group/chat, /group/chat/:chatId
+ *     ├── /group/chat, /group/chat/:chatId
  *     ├── /settings, /settings/password, /settings/delete-account
  *     ├── /profile/:id, /profile/:id/articles, etc.
  *     ├── /friends, /friends/invitations, etc.
@@ -38,7 +39,7 @@ import Auth from "@/features/auth/pages/Auth";
 import LoginPage from "@/features/auth/components/Login";
 import SignUpPage from "@/features/auth/components/Signup";
 import ForgetPassword from "@/features/auth/components/ForgetPassword";
-import ResetPassword from "@/features/auth/components/REsetePassword";
+import ResetPassword from "@/features/auth/components/ResetePassword";
 
 // ============================================
 // LANDING & PUBLIC PAGES
